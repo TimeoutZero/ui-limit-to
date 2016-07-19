@@ -33,6 +33,7 @@ module.exports = {
   "globals" : {
     angular: true,
     module:  true,
-    inject : true
+    inject : true,
+    require: true
   }
 };
