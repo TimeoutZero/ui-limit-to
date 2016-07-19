@@ -31,7 +31,8 @@ bower install ui-limit-to --save
   <div ui-select-match placeholder="'Select'">
     <span ng-bind="$select.selected.name"></span>
   </div>
-  <div ui-select-choices repeat="item.id as item in list | filter: $select.search | uiLimitTo:100:myModel:'id' track by item.id">
+  <div ui-select-choices 
+    repeat="item.id as item in list | filter: $select.search | uiLimitTo:100:myModel:'id' track by item.id">
     <div ng-bind-html="item.name | highlight: $select.search"></div>
   </div>
 </div>
