@@ -1,0 +1,55 @@
+{
+  "name": "ui-limit-to",
+  "description": "An implementation of Angular's filter \"limitTo\" for ui-select",
+  "authors": [
+    "Carlos Henrique <carloshpds@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TimeoutZero/ui-limit-to.git"
+  },
+  "main": [
+    "builds/release/uiLimitTo/uiLimitTo.js"
+  ],
+  "dependencies": {
+    "angular": "1.4.7",
+    "angular-sanitize": "1.4.6"
+  },
+  "devDependencies": {
+    "angular-resource": "1.4.6",
+    "angular-mocks": "1.4.6"
+  },
+  "resolutions": {
+    "angular": "1.4.7",
+    "angular-touch": "1.4.6",
+    "angular-resource": "1.4.6",
+    "angular-sanitize": "1.4.6"
+  },
+  "overrides": {
+  },
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "angular",
+    "ng",
+    "ui",
+    "select",
+    "ui-select",
+    "ui-limit-to",
+    "br"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src",
+    "demo",
+    ".vscode",
+    "test",
+    "tests"
+  ],
+  "license" : "MIT"
+}
