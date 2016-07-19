@@ -9,6 +9,9 @@ bbComponentOptions.modules = {
   },
   bundler: {
     webpackConfig: {
+      output: {
+        filename: '[name].js'
+      },
       externals: {
         'angular' : 'angular'
       },
