@@ -1,8 +1,9 @@
 # ui-limit-to
-An implementation of Angular's `limitTo` filter for [ui-select](https://github.com/angular-ui/ui-select).
+uiLimitTo is an extension of Angular's `limitTo` to ensures that the model is in the list.
 
-### Description
-uiLimitTo is an extension of Angular's `limitTo` for ui-select. It ensures that the model is in the list.
+### Common use cases
+* [ui-select](https://github.com/angular-ui/ui-select)
+
 
 ### Install
 * Using bower
