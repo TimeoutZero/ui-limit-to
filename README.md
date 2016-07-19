@@ -4,13 +4,14 @@ uiLimitTo is an extension of Angular's `limitTo` to ensures that the model is in
 ### Common use cases
 * [ui-select](https://github.com/angular-ui/ui-select)
 
+===
 
 ### Install
 * Using bower
 ```
 bower install ui-limit-to --save
 ```
-
+===
 
 ### Usage
 
