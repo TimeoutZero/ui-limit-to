@@ -12,8 +12,7 @@
     "builds/release/uiLimitTo/uiLimitTo.js"
   ],
   "dependencies": {
-    "angular": "1.4.7",
-    "angular-sanitize": "1.4.6"
+    "angular": "1.4.7"
   },
   "devDependencies": {
     "angular-resource": "1.4.6",
@@ -21,9 +20,7 @@
   },
   "resolutions": {
     "angular": "1.4.7",
-    "angular-touch": "1.4.6",
-    "angular-resource": "1.4.6",
-    "angular-sanitize": "1.4.6"
+    "angular-touch": "1.4.6"
   },
   "overrides": {
   },

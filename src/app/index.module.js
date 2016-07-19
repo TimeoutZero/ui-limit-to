@@ -3,7 +3,7 @@
 // =============================================
 // Vendors
 // =============================================
-angular.module("uiLimitTo.vendors", ['ngSanitize']);
+angular.module("uiLimitTo.vendors", []);
 
 // =============================================
 // Modules
