@@ -11,6 +11,10 @@ uiLimitTo is an extension of Angular's `limitTo` to ensures that the model is in
 ```
 bower install ui-limit-to --save
 ```
+
+* Not using any package manager <br/>
+Just copy the `builds/release/uiLimitTo.js` script to your project.
+
 ===
 
 ### Usage
