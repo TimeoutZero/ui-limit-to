@@ -19,7 +19,7 @@ bower install ui-limit-to --save
 *  Load the script in your index.html
 
 ```html
-  <script src="bower_components/uiLimitTo/builds/release/uiLimitTo/uiLimitTo.js"></script>
+  <script src="bower_components/uiLimitTo/builds/release/uiLimitTo.js"></script>
 ```
  * Load the module as dependence
 
