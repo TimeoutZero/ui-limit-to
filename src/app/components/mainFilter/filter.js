@@ -1,26 +1,61 @@
-'use strict';
+(function(){
+  'use strict';
 
-angular
-  .module('uiLimitTo.filters')
-  .filter('uiLimitTo', uiLimitToFilterProvider);
+  angular
+    .module('uiLimitTo.filters')
+    .filter('uiLimitTo', uiLimitToFilterProvider);
 
-function uiLimitToFilterProvider($filter){
-  return function (list, limitNumber, model, modelProperty, begin, options){
-    limitNumber   = limitNumber   || 2;
-    options       = options       || {};
-    modelProperty = modelProperty || null;
+  function uiLimitToFilterProvider($filter){
+    return uiLimitTo;
 
-    var limitedList = $filter('limitTo')(list, limitNumber, begin);
+    function uiLimitTo(list, limitNumber, model, modelProperty, begin, options){
 
-    var foundModel = limitedList.find(function(item){
-      return modelProperty ? model[modelProperty] === item[modelProperty] : model === item;
-    });
+      /**
+       * defaults
+       */
+      limitNumber    = limitNumber   || 1000;
+      options        = options       || {};
+      modelProperty  = modelProperty || null;
 
-    if(!foundModel){
-      limitedList.push(model);
+      /**
+       * Local variables
+       */
+      var foundModel  = null;
+      var limitedList = null;
+      var comparator  = options.comparator;
+
+      if(!comparator){
+        comparator = modelProperty ? compareByModelProperty : compareByModel;
+      }
+
+      limitedList = $filter('limitTo')(list, limitNumber, begin);
+
+      if(model){
+        for (var i = 0; i < limitedList.length; i++) {
+          var element = limitedList[i];
+          if(comparator(element)){
+            foundModel = element;
+            break;
+          }
+        }
+      }
+
+      if(!foundModel && model){
+        limitedList.splice(limitedList.length - 1, 1, model);
+      }
+
+      return limitedList;
+
+      function compareByModelProperty(item) {
+        return  model[modelProperty] === item[modelProperty];
+      }
+
+      function compareByModel(item) {
+        return model === item;
+      }
+
     }
 
-    return limitedList;
+  }
 
-  };
-}
+})();
