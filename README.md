@@ -47,4 +47,5 @@ bower install ui-limit-to --save
     myModel  = { id: 3 }; 
 
   $filter('uiLimitTo')(list, maxLimit, myModel, 'id');
+  // -> [{ id: 1 }, { id: 3 }]
 ```
