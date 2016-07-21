@@ -150,28 +150,63 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	uiLimitToFilterProvider.$inject = ["$filter"];
-	angular.module('uiLimitTo.filters').filter('uiLimitTo', uiLimitToFilterProvider);
+	(function () {
+	  'use strict';
 
-	function uiLimitToFilterProvider($filter) {
-	  return function (list, limitNumber, model, modelProperty, begin, options) {
-	    limitNumber = limitNumber || 2;
-	    options = options || {};
-	    modelProperty = modelProperty || null;
+	  uiLimitToFilterProvider.$inject = ["$filter"];
+	  angular.module('uiLimitTo.filters').filter('uiLimitTo', uiLimitToFilterProvider);
 
-	    var limitedList = $filter('limitTo')(list, limitNumber, begin);
+	  function uiLimitToFilterProvider($filter) {
+	    return uiLimitTo;
 
-	    var foundModel = limitedList.find(function (item) {
-	      return modelProperty ? model[modelProperty] === item[modelProperty] : model === item;
-	    });
+	    function uiLimitTo(list, limitNumber, model, modelProperty, begin, options) {
 
-	    if (!foundModel) {
-	      limitedList.push(model);
+	      /**
+	       * defaults
+	       */
+	      limitNumber = limitNumber || 1000;
+	      options = options || {};
+	      modelProperty = modelProperty || null;
+
+	      /**
+	       * Local variables
+	       */
+	      var foundModel = null;
+	      var limitedList = null;
+	      var comparator = options.comparator;
+
+	      if (!comparator) {
+	        comparator = modelProperty ? compareByModelProperty : compareByModel;
+	      }
+
+	      limitedList = $filter('limitTo')(list, limitNumber, begin);
+
+	      if (model) {
+	        for (var i = 0; i < limitedList.length; i++) {
+	          var element = limitedList[i];
+	          if (comparator(element)) {
+	            foundModel = element;
+	            break;
+	          }
+	        }
+	      }
+
+	      if (!foundModel && model) {
+	        limitedList.splice(limitedList.length - 1, 1, model);
+	      }
+
+	      return limitedList;
+
+	      function compareByModelProperty(item) {
+	        return model[modelProperty] === item[modelProperty];
+	      }
+
+	      function compareByModel(item) {
+	        return model === item;
+	      }
 	    }
-
-	    return limitedList;
-	  };
-	}
+	  }
+	})();
 
 /***/ },
 /* 5 */
