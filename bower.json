@@ -9,7 +9,7 @@
     "url": "git://github.com/TimeoutZero/ui-limit-to.git"
   },
   "main": [
-    "builds/release/uiLimitTo/uiLimitTo.js"
+    "builds/release/uiLimitTo.js"
   ],
   "dependencies": {
     "angular": "1.4.7"
