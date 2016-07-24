@@ -68,7 +68,5 @@ modelProperty | `String` | specifies the property to be compared when search the
 begin | `Number` | Index at which to begin limitation. As a negative index, begin indicates an offset from the end of input.
 options | `Object` | Additional options like `options.comparator`
 
-}
-
 #### returns
 `{Array|ArrayLike|String|Number}` The same type of input argument.
