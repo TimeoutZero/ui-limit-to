@@ -33,12 +33,12 @@ Just copy the `builds/release/uiLimitTo.js` script to your project.
 
 #### Using in html
 ```html
-<div ui-select ng-model  = "myModel">
+<div ui-select ng-model="myModel">
   <div ui-select-match placeholder="'Select'">
     <span ng-bind="$select.selected.name"></span>
   </div>
   <div ui-select-choices
-    repeat="item in list | filter: $select.search | uiLimitTo:100:myModel:'id' track by item.id">
+    repeat=" item in list | filter: $select.search | uiLimitTo:100:myModel:'id' track by item.id ">
     <div ng-bind-html="item.name | highlight: $select.search"></div>
   </div>
 </div>
