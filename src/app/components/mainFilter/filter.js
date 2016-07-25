@@ -58,8 +58,17 @@
       var limitedInput = null;
       var comparator   = options.comparator;
 
+      var
+        inputIsArray        = Array.isArray(input),
+        inputIsNumber       = !inputIsArray && typeof input === 'number',
+        inputIsFloatFloat   = !inputIsArray && inputIsNumber && input % 1 === 0;
+
       if(!comparator){
         comparator = modelProperty ? compareByModelProperty : compareByModel;
+      }
+
+      if(!inputIsArray){
+        input = input.toString().split('');
       }
 
       limitedInput = $filter('limitTo')(input, limitNumber, begin);
@@ -75,7 +84,14 @@
       }
 
       if(!foundModel && model){
-        limitedInput.splice(limitedInput.length - 1, 1, model);
+        pushModelToLastPosition();
+      }
+
+      if(!inputIsArray){
+        limitedInput = limitedInput.join('');
+        if(inputIsNumber){
+          restoreInputAsNumber();
+        }
       }
 
       return limitedInput;
@@ -86,6 +102,18 @@
 
       function compareByModel(item) {
         return model === item;
+      }
+
+      function restoreInputAsNumber(){
+        if(inputIsFloatFloat){
+          limitedInput = parseFloat(limitedInput);
+        } else {
+          limitedInput = parseInt(limitedInput, 10);
+        }
+      }
+
+      function pushModelToLastPosition() {
+        limitedInput.splice(limitedInput.length - 1, 1, model);
       }
 
     }
