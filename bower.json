@@ -36,7 +36,8 @@
     "select",
     "ui-select",
     "ui-limit-to",
-    "br"
+    "br",
+    "web-components"
   ],
   "ignore": [
     "**/.*",
