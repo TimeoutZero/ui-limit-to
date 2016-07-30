@@ -1,5 +1,5 @@
 # ui-limit-to
-uiLimitTo is an extension of Angular's [`limitTo`](https://docs.angularjs.org/api/ng/filter/limitTo) to ensures that the model is in the list.
+uiLimitTo is an alternative of Angular's [`limitTo`](https://docs.angularjs.org/api/ng/filter/limitTo) to ensures that the model is in the input resource.
 
 ### Common use cases
 * [ui-select](https://github.com/angular-ui/ui-select)
